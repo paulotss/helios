@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
 import AppContext from './context/AppContext';
 import { classesData } from './helpers/classesData';
 import Classes from './pages/Classes';
