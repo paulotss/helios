@@ -10,14 +10,15 @@ const Login = () => {
   const [isValid, setValid] = useState(false);
   useEffect(() => {
     const validateForm = () => {
-      if (input.password.length > 6 && input.email.match(/.+\@.+\..+/)) {
+      const valEmail = /^([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})$/i;
+      if (input.password.length > 6 && input.email.match(valEmail)) {
         setValid(true);
       } else if (isValid) {
         setValid(false);
       }
     }
     validateForm();
-  }, [input]);
+  }, [input, isValid]);
   return (
     <div id="loginForm">
       <h1>Login</h1>
