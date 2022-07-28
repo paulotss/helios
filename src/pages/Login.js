@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useFormController from '../hooks/useFormController';
 
 const Login = () => {
@@ -20,39 +21,38 @@ const Login = () => {
     validateForm();
   }, [input, isValid]);
   return (
-    <div id="loginForm">
-      <h1>Login</h1>
-      <label>
-        Email
-        {' '}
-        <br />
+    <main className="grid w-screen h-screen bg-green-100 place-content-center">
+      <div className="rounded-xl flex flex-col p-8 w-96 shadow bg-white">
+        <h1 className="font-satisfy text-center text-5xl mb-5 text-green-800">Helio</h1>
         <input
+          className="rounded outline p-3 mb-5 bg-black focus:outline-green-800 text-white"
           type="email"
           name="email"
           id="email"
           value={ input.email }
           onChange={ updateState }
-        />
-      </label>
-      <label>
-        Password
-        {' '}
-        <br />
+          placeholder="Email"
+          />
         <input
+          className="rounded outline p-3 mb-5 bg-black focus:outline-green-800 text-white"
           type="password"
           name="password"
           id="password"
           value={ input.password }
           onChange={ updateState }
+          placeholder="Password"
         />
-      </label>
-      <button
-        type='button'
-        disabled={ !isValid }
-      >
-        Entrar
-      </button>
-    </div>
+        <Link to="/turmas">
+          <button
+            className="bg-green-800 text-white w-full p-3 rounded disabled:bg-gray-500"
+            type='button'
+            disabled={ !isValid }
+          >
+            Entrar
+          </button>
+        </Link>
+      </div>
+    </main>
   );
 }
 
