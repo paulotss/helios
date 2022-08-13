@@ -16,6 +16,7 @@ const Classes = () => {
             <ClassCard
               key={ classItem.id }
               name={ classItem.name }
+              image={ classItem.image }
               id={ classItem.id }
             />
           ))
